@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
+import ReduxProvider from "@/components/ReduxProvider"; // 🔥 pakai komponen client ini
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
@@ -14,11 +15,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} ${poppins.className}`}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        {/* ✅ Bungkus semuanya dalam komponen client */}
+        <ReduxProvider>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );

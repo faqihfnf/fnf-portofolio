@@ -63,13 +63,13 @@ export default function ProjectsPage() {
   const filteredProjects = selectedCategory === "All" ? projects : projects.filter((project) => project.technologies.some((tech) => tech.toLowerCase().includes(selectedCategory.toLowerCase())));
 
   return (
-    <div className="min-h-screen bg-gray-50 py-20">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <motion.h1 className="text-4xl font-bold text-gray-900 mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <motion.h1 className="text-4xl font-boldmb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             My Projects
           </motion.h1>
-          <motion.p className="text-lg text-gray-600 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.p className="text-lg  max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience.
           </motion.p>
         </div>
@@ -77,7 +77,11 @@ export default function ProjectsPage() {
         {/* Category Filter */}
         <motion.div className="flex flex-wrap justify-center gap-4 mb-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
           {categories.map((category) => (
-            <button key={category} onClick={() => setSelectedCategory(category)} className={`px-6 py-2 rounded-full transition-colors ${selectedCategory === category ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"}`}>
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-full transition-colors ${selectedCategory === category ? "bg-indigo-600 text-white" : "bg-indigo-100 text-gray-700 hover:bg-gray-50"}`}
+            >
               {category}
             </button>
           ))}
