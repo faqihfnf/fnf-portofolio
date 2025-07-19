@@ -2,40 +2,18 @@
 
 import HeroSection from "@/components/ui/hero-section";
 import { InfiniteMovingCards } from "@/components/ui/InfiniteMovingCards";
+import { Button } from "@/components/ui/moving-border";
+import { myServices } from "@/data/myservices";
 import { techStackIcons } from "@/data/TechStack";
 import { motion } from "framer-motion";
 import { Code, Palette, Zap, Users } from "lucide-react";
 import Link from "next/link";
 
-const features = [
-  {
-    icon: Code,
-    title: "Full Stack Development",
-    description: "Building robust web applications with modern technologies like React, Next.js, and Node.js",
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Creating beautiful and intuitive user interfaces that provide excellent user experience",
-  },
-  {
-    icon: Zap,
-    title: "Performance Optimization",
-    description: "Optimizing applications for speed, scalability, and better user experience",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    description: "Working effectively with teams to deliver high-quality software solutions",
-  },
-];
-
 export default function Home() {
   return (
-    <div className="relative dark:bg-black-100 flex justify-center items-center overflow-clip flex-col mx-auto ">
-      <div className="min-h-screen max-w-7xl w-full ">
+    <div className="relative dark:bg-black-100  justify-center items-center overflow-clip flex-col mx-auto ">
+      <div className="">
         <HeroSection />
-
         {/* About Section */}
         <section className="py-20 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,22 +26,17 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center p-6 rounded-lg hover:bg-gray-50 transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-lg mb-4">
-                    <feature.icon className="w-8 h-8 text-blue-600" />
+            <div className="w-full mt-20 grid lg:grid-cols-4 grid-cols-1 gap-10">
+              {myServices.map((card) => (
+                <Button key={card.id} duration={Math.floor(Math.random() * 10000 + 10000)} borderRadius="1rem" className="flex-1 text-white border-slate-200 dark:border-slate-700">
+                  <div className="flex lg:flex-row flex-col lg:items-center p-3 md:p-5 lg:p-10 gap-2">
+                    <card.icon className="h-14 w-14 text-indigo-200" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </motion.div>
+                  <div className="lg:ms-5">
+                    <h1 className="text-start text-xl md:text-2xl font-bold ">{card.title}</h1>
+                    <p className="text-start text-white mt-3 font-semibold">{card.desc}</p>
+                  </div>
+                </Button>
               ))}
             </div>
           </div>
@@ -71,7 +44,7 @@ export default function Home() {
 
         {/* Tech Stack Section */}
         <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
                 What I Use

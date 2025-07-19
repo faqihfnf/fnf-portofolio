@@ -33,7 +33,7 @@ export default function HeroSection() {
           <ColourfulText text="Full Stack Developer" />
         </motion.h1>
 
-        <TextGenerateEffect words={words} className="mt-6 font-normal text-white max-w-2xl text-center mx-auto" filter={true} duration={1} />
+        <TextGenerateEffect words={words} className="mt-6 font-normal text-white lg:max-w-2xl max-w-sm text-center mx-auto" filter={true} duration={1} />
 
         <motion.div className="flex justify-center space-x-4 mt-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
           <Link
