@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FloatingNav } from "./floating-navbar";
-import { Home, User, Briefcase, BookOpen, Mail } from "lucide-react";
+import { Home, User, Briefcase, BookOpen, Mail, ShieldAlertIcon, ShieldCheckIcon, BriefcaseBusinessIcon } from "lucide-react";
 
 export default function Navbar() {
   const navItems = [
@@ -19,12 +19,12 @@ export default function Navbar() {
     {
       name: "Projects",
       link: "/projects",
-      icon: <Briefcase className="h-4 w-4 " />,
+      icon: <BriefcaseBusinessIcon className="h-4 w-4 " />,
     },
     {
       name: "Certificates",
       link: "/certificates",
-      icon: <User className="h-4 w-4 " />,
+      icon: <ShieldCheckIcon className="h-4 w-4 " />,
     },
     {
       name: "Blog",

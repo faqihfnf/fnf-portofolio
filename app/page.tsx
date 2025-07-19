@@ -7,6 +7,7 @@ import { myServices } from "@/data/myservices";
 import { techStackIcons } from "@/data/TechStack";
 import { motion } from "framer-motion";
 import { Code, Palette, Zap, Users } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
     <div className="relative dark:bg-black-100  justify-center items-center overflow-clip flex-col mx-auto ">
       <div className="">
         <HeroSection />
-        {/* About Section */}
+
+        {/* My Services Section */}
         <section className="py-20 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -60,8 +62,96 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Me Section */}
+        <section className="py-20 bg-gray-50 dark:bg-gray-900">
+          <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <motion.h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+              About Me
+            </motion.h2>
+            {/* Profile & Text */}
+            <motion.div className="" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Profile Image */}
+                <div className="mx-auto flex justify-end mb-4 md:mx-0 order-1 md:order-2">
+                  <div className="relative group">
+                    <div
+                      className="w-80 h-80 bg-gradient-to-br from-purple-600 to-teal-500 p-1 transition-transform duration-300 group-hover:scale-105  group-hover:rotate-2"
+                      style={{
+                        clipPath: "polygon(8% 10%, 15% 6%, 28% 2%, 63% 5%, 85% 3%, 97% 25%, 85% 90%, 15% 98%, 12% 82%, 1% 72%, 7% 15%, 4% 10%)",
+                      }}
+                    >
+                      <div
+                        className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden"
+                        style={{
+                          clipPath: "polygon(8% 10%, 15% 6%, 28% 2%, 63% 5%, 85% 3%, 97% 25%, 85% 90%, 15% 98%, 12% 82%, 1% 72%, 7% 15%, 4% 10%)",
+                        }}
+                      >
+                        <Image src="/profil.jpg" alt="Profile" width={300} height={300} className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* About Text */}
+                <motion.p
+                  className="text-lg text-justify items-center justify-center flex text-gray-600 dark:text-gray-300 mb-6 leading-8 order-2 md:order-1"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  Saya seorang developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam frontend dan backend development, saya senang mengubah ide menjadi kenyataan.
+                </motion.p>
+              </div>
+            </motion.div>
+            <motion.div className=" gap-12 items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+              {/* Motto/Tagline */}
+              <div className="mt-10 text-left order-2 md:order-1">
+                <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
+                  <div className="text-center md:text-left">
+                    <blockquote className="text-2xl font-medium text-gray-800 dark:text-gray-200 italic border-l-4 border-blue-500 pl-4">"Code with passion, create with purpose, innovate with impact."</blockquote>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">- Filosofi kerja saya</p>
+                  </div>
+
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500">
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">Tahun Pengalaman</div>
+                    </div>
+                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500">
+                      <div className="text-2xl font-bold text-green-600 dark:text-green-400">15+</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">Project Selesai</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Additional Info Cards */}
+                <motion.div className="grid md:grid-cols-3 gap-6 mt-12" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                    <div className="text-3xl mb-3 ">🎯</div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Fokus pada Detail</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Setiap pixel dan line code memiliki makna untuk menciptakan pengalaman terbaik</p>
+                  </div>
+
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                    <div className="text-3xl mb-3">🚀</div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Always Learning</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Teknologi terus berkembang, begitu juga dengan kemampuan dan wawasan saya</p>
+                  </div>
+
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                    <div className="text-3xl mb-3">🤝</div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Team Player</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Kolaborasi yang baik menghasilkan solusi yang lebih inovatif dan sustainable</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <section className="py-20 bg-gradient-to-r from-indigo-600 to-purple-700">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <motion.h2 className="text-4xl font-bold text-white mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               Ready to Work Together?
