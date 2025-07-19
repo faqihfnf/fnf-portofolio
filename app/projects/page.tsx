@@ -9,7 +9,7 @@ const projects = [
     title: "E-Commerce Platform",
     description: "A full-featured e-commerce platform with payment integration, inventory management, and user authentication.",
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Mobile"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
   },
@@ -55,7 +55,7 @@ const projects = [
   },
 ];
 
-const categories = ["All", "React", "Next.js", "Node.js", "Mobile"];
+const categories = ["All", "React", "Next.js", "Node.js", "Mobile", "MongoDb"];
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");

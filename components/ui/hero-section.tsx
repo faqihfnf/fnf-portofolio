@@ -6,6 +6,7 @@ import { Spotlight } from "./spotlight";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import TextGenerateEffect from "./text-generate-effect";
+import { ColourfulText } from "./colourful-text";
 
 export default function HeroSection() {
   const words = `I create beautiful and functional web applications using modern technologies to help and solve the problems. Passionate about user experience and innovative solutions.`;
@@ -29,7 +30,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Full Stack Developer
+          <ColourfulText text="Full Stack Developer" />
         </motion.h1>
 
         <TextGenerateEffect words={words} className="mt-6 font-normal text-white max-w-2xl text-center mx-auto" filter={true} duration={1} />
@@ -47,15 +48,15 @@ export default function HeroSection() {
         </motion.div>
 
         <motion.div className="flex justify-center space-x-6 mt-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-          <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+          <Link href="https://github.com/faqihfnf" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
             <Github className="w-6 h-6" />
-          </a>
-          <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+          </Link>
+          <Link href="https://www.linkedin.com/in/faqih-nur-fahmi-b51bb1ab/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
             <Linkedin className="w-6 h-6" />
-          </a>
-          <a href="mailto:john.doe@example.com" className="text-neutral-400 hover:text-white transition-colors">
+          </Link>
+          <Link href="mailto:faqih.fnf@gmail.com" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
             <Mail className="w-6 h-6" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </div>

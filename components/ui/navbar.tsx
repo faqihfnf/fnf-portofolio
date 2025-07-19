@@ -9,27 +9,32 @@ export default function Navbar() {
     {
       name: "Home",
       link: "/",
-      icon: <Home className="h-4 w-4 text-slate-900" />,
+      icon: <Home className="h-4 w-4 " />,
     },
     {
       name: "Experience",
       link: "/experience",
-      icon: <User className="h-4 w-4 text-slate-900" />,
+      icon: <User className="h-4 w-4 " />,
     },
     {
       name: "Projects",
       link: "/projects",
-      icon: <Briefcase className="h-4 w-4 text-slate-900" />,
+      icon: <Briefcase className="h-4 w-4 " />,
+    },
+    {
+      name: "Certificates",
+      link: "/certificates",
+      icon: <User className="h-4 w-4 " />,
     },
     {
       name: "Blog",
       link: "/blog",
-      icon: <BookOpen className="h-4 w-4 text-slate-900" />,
+      icon: <BookOpen className="h-4 w-4 " />,
     },
     {
       name: "Contact",
       link: "/contact",
-      icon: <Mail className="h-4 w-4 text-slate-900" />,
+      icon: <Mail className="h-4 w-4 " />,
     },
   ];
 
