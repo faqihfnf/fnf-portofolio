@@ -131,11 +131,11 @@ export default function Home() {
 
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500">
+                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-teal-500">
                       <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Tahun Pengalaman</div>
                     </div>
-                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500">
+                    <div className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-pink-500">
                       <div className="text-2xl font-bold text-green-600 dark:text-green-400">15+</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Project Selesai</div>
                     </div>
@@ -144,19 +144,19 @@ export default function Home() {
 
                 {/* Additional Info Cards */}
                 <motion.div className="grid md:grid-cols-3 gap-6 mt-12" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} viewport={{ once: true }}>
-                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-indigo-500">
                     <div className="text-3xl mb-3 ">🎯</div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Fokus pada Detail</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Setiap pixel dan line code memiliki makna untuk menciptakan pengalaman terbaik</p>
                   </div>
 
-                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-pink-500 transition-shadow duration-300 shadow-teal-500">
                     <div className="text-3xl mb-3">🚀</div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Always Learning</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Teknologi terus berkembang, begitu juga dengan kemampuan dan wawasan saya</p>
                   </div>
 
-                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 shadow-indigo-500">
+                  <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-indigo-500 transition-shadow duration-300 shadow-pink-500">
                     <div className="text-3xl mb-3">🤝</div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Team Player</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Kolaborasi yang baik menghasilkan solusi yang lebih inovatif dan sustainable</p>
@@ -169,12 +169,16 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-20 ">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-              Ready to Work Together?
+              Ready to Work{" "}
+              <span>
+                <span className="text-indigo-700 dark:text-indigo-500">Together?</span>
+              </span>
             </motion.h2>
-            <motion.p className="text-xl  mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
-              Let's create something amazing together. Get in touch to discuss your project.
+            <motion.p className="text-xl mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+              Let's reach out me to discuss your <span className="text-teal-600 dark:text-teal-500 font-semibold">project</span> needs. I'm always open to new{" "}
+              <span className="text-indigo-600 dark:text-indigo-500 font-semibold">opportunities</span> and <span className="text-pink-600 dark:text-pink-500 font-semibold">collaborations</span>.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
               <Link href="/contact">

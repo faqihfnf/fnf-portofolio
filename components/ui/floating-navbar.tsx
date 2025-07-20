@@ -68,10 +68,10 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
         transition={{ duration: 0.2 }}
         className={`fixed top-4 inset-x-0 mx-auto z-50 ${isScrolled ? "max-w-fit" : "max-w-7xl px-4 sm:px-6 lg:px-8"} ${className}`}
       >
-        <div className={`relative rounded-full border border-transparent ${isScrolled ? "bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg px-8 py-2" : "bg-transparent px-0 py-0"} transition-all duration-300`}>
+        <div className={`relative rounded-full border border-transparent ${isScrolled ? "bg-white/60 dark:bg-slate-800/80 backdrop-blur-md shadow-lg px-8 py-2" : "bg-transparent px-0 py-0"} transition-all duration-300`}>
           <div className={`flex items-center ${isScrolled ? "justify-center space-x-6" : "justify-between"}`}>
             {!isScrolled && (
-              <Link href="/" className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">
+              <Link href="/" className="text-4xl font-bold text-indigo-700">
                 F n F.
               </Link>
             )}
@@ -87,7 +87,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                       ? isScrolled
                         ? "text-indigo-600 dark:text-indigo-400"
                         : pathname === "/"
-                        ? "text-indigo-400 dark:text-indigo-300"
+                        ? "text-indigo-600 dark:text-indigo-400"
                         : "text-indigo-600 dark:text-indigo-400"
                       : isScrolled
                       ? "text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400"

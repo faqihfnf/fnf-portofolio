@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { Button } from "@/components/ui/stateful-button";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Youtube, Mails } from "lucide-react";
+import { toast } from "sonner";
+import Link from "next/link";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -17,8 +20,8 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const {
     register,
@@ -29,19 +32,45 @@ export default function ContactPage() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", data);
-      setSubmitStatus("success");
-      reset();
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleButtonClick = () => {
+    return new Promise<void>((resolve, reject) => {
+      handleSubmit(async (data) => {
+        try {
+          await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+            {
+              user_name: data.name,
+              user_email: data.email,
+              subject: data.subject,
+              message: data.message,
+            },
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+          );
+          // setSubmitStatus("success");
+          reset();
+          toast("Message sent successfully!", {
+            className: "bg-green-500 text-white border-none",
+            action: {
+              label: "Undo",
+              onClick: () => console.log("Undo"),
+            },
+          });
+          resolve();
+        } catch (error) {
+          console.error("EmailJS Error:", error);
+          toast("Failed to send message!", {
+            className: "bg-red-500 text-white border-none",
+            action: {
+              label: "Undo",
+              onClick: () => console.log("Undo"),
+            },
+          });
+          // setSubmitStatus("error");
+          reject();
+        }
+      })(); // langsung jalankan
+    });
   };
 
   return (
@@ -57,13 +86,12 @@ export default function ContactPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div className="bg-white p-8 rounded-lg shadow-lg" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Message</h2>
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Form */}
+          <motion.div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <h2 className="text-2xl font-bold mb-6">Send Message</h2>
+            <form className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium  mb-2">
                   Name
                 </label>
                 <input type="text" id="name" {...register("name")} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" />
@@ -71,7 +99,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium  mb-2">
                   Email
                 </label>
                 <input
@@ -85,7 +113,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium  mb-2">
                   Subject
                 </label>
                 <input
@@ -99,7 +127,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium  mb-2">
                   Message
                 </label>
                 <textarea
@@ -112,53 +140,77 @@ export default function ContactPage() {
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
+              {/* ✅ Tombol pakai Stateful Button */}
+              <Button onClick={handleButtonClick} className="inline-flex items-center justify-center w-full rounded-md bg-indigo-600 hover:bg-indigo-700 gap-2" type="button">
+                <span className="text-md font-semibold text-white flex items-center">
+                  Send Message <Mails className="w-5 h-5 ml-2" />
+                </span>
+              </Button>
 
-              {submitStatus === "success" && <p className="text-green-600 text-center">Message sent successfully!</p>}
-              {submitStatus === "error" && <p className="text-red-600 text-center">Error sending message. Please try again.</p>}
+              {/* {submitStatus === "success" && <p className="text-green-600 text-center">✅ Message sent successfully!</p>}
+              {submitStatus === "error" && <p className="text-red-600 text-center">❌ Failed to send. Please try again.</p>} */}
             </form>
           </motion.div>
 
+          {/* Contact Info tetap sama */}
           {/* Contact Info */}
           <motion.div className="space-y-8" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Info</h2>
+            <div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500">
+              <h2 className="text-2xl font-bold mb-6">Contact Info</h2>
 
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">john.doe@example.com</span>
+                  <Mail className="w-5 h-5 text-indigo-500 mr-3" />
+                  <span className="">faqih.fnf@gmail.com</span>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">+1 (555) 123-4567</span>
+                  <Phone className="w-5 h-5 text-indigo-500 mr-3" />
+                  <span className="">+62 899 6423 135</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">San Francisco, CA</span>
+                  <MapPin className="w-5 h-5 text-indigo-500 mr-3" />
+                  <span className="">Jakarta, Indonesia</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Follow Me</h2>
+            {/* Follow Me */}
+            <div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500">
+              <h2 className="text-2xl font-bold mb-6">Follow Me</h2>
 
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors">
-                  <Github className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors">
-                  <Linkedin className="w-5 h-5 text-gray-600" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors">
-                  <Twitter className="w-5 h-5 text-gray-600" />
-                </a>
+              <div className="flex justify-center sm:justify-start gap-4">
+                <Link
+                  href="https://github.com/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-indigo-500 hover:bg-indigo-600 hover:text-white  hover:border-indigo-600"
+                >
+                  <Github className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://linkedin.com/in/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-indigo-500 hover:bg-indigo-600 hover:text-white  hover:border-indigo-600"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://twitter.com/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-indigo-500 hover:bg-indigo-600 hover:text-white  hover:border-indigo-600"
+                >
+                  <Twitter className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://twitter.com/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 rounded-lg bg-black-200 border border-indigo-400 dark:border-indigo-500 hover:bg-indigo-600 hover:text-white  hover:border-indigo-600"
+                >
+                  <Youtube className="w-5 h-5" />
+                </Link>
               </div>
             </div>
           </motion.div>
