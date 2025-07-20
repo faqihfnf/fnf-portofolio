@@ -87,7 +87,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form */}
-          <motion.div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+          <motion.div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg shadow-indigo-500" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
             <h2 className="text-2xl font-bold mb-6">Send Message</h2>
             <form className="space-y-6">
               <div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
           {/* Contact Info tetap sama */}
           {/* Contact Info */}
           <motion.div className="space-y-8" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500">
+            <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg shadow-indigo-500">
               <h2 className="text-2xl font-bold mb-6">Contact Info</h2>
 
               <div className="space-y-4">
@@ -175,7 +175,7 @@ export default function ContactPage() {
             </div>
 
             {/* Follow Me */}
-            <div className="bg-white dark:bg-slate-600 p-8 rounded-lg shadow-lg shadow-indigo-500">
+            <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg shadow-indigo-500">
               <h2 className="text-2xl font-bold mb-6">Follow Me</h2>
 
               <div className="flex justify-center sm:justify-start gap-4">

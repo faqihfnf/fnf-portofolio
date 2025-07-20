@@ -24,7 +24,7 @@ export default function ProjectsPage() {
           <motion.h1 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             My Projects
           </motion.h1>
-          <motion.p className="text-lg max-w-2xl mx-auto text-gray-600" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+          <motion.p className="text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             Here are some of the projects I&apos;ve worked on. Each one represents a unique challenge and learning experience.
           </motion.p>
         </div>

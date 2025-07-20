@@ -40,7 +40,7 @@ export default function CertificatesPage() {
               <div className="h-56 overflow-hidden">
                 <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />
               </div>
-              <div className="p-3">
+              <div className="p-3 bg-white dark:bg-slate-800">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{cert.title}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{cert.organization}</p>
                 <span className="text-xs text-gray-500 dark:text-gray-400">{cert.date}</span>
