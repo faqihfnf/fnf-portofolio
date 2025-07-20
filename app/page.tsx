@@ -64,7 +64,7 @@ export default function Home() {
         </section>
 
         {/* About Me Section */}
-        <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <section className="py-20">
           <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <motion.h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               What About Me
@@ -114,6 +114,8 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
+                  Saya seorang developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam frontend dan backend development, saya senang mengubah ide menjadi kenyataan.
+                  <br />
                   Saya seorang developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam frontend dan backend development, saya senang mengubah ide menjadi kenyataan.
                 </motion.p>
               </div>
@@ -166,17 +168,22 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-indigo-800 to-violet-700">
+        <section className="py-20 ">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <motion.h2 className="text-4xl font-bold text-white mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+            <motion.h2 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               Ready to Work Together?
             </motion.h2>
-            <motion.p className="text-xl text-blue-100 mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
+            <motion.p className="text-xl  mb-8" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
               Let's create something amazing together. Get in touch to discuss your project.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
               <Link href="/contact">
-                <TouchButton otherClasses="hover:text-pink-500 font-semibold text-lg" title="Let's get in touch" icon={<SendIcon className="w-4 h-4" />} position="right"></TouchButton>
+                <TouchButton
+                  otherClasses="hover:text-pink-500 dark:hover:text-pink-500 hover:bg-indigo-200 text-indigo-700 dark:text-indigo-100 font-semibold text-lg"
+                  title="Let's get in touch"
+                  icon={<SendIcon className="w-4 h-4" />}
+                  position="right"
+                ></TouchButton>
               </Link>
             </motion.div>
           </div>

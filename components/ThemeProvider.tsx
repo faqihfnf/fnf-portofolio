@@ -29,5 +29,5 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     }
   }, [theme]);
 
-  return <div className="bg-white text-slate-900 dark:text-slate-200 dark:bg-[rgb(5,10,35)] min-h-screen transition-colors duration-500 ease-in-out">{children}</div>;
+  return <div className="bg-slate-100 text-slate-900 dark:text-slate-200 dark:bg-[rgb(5,10,35)] min-h-screen transition-colors duration-500 ease-in-out">{children}</div>;
 }
