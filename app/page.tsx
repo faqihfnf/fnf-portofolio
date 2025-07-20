@@ -1,12 +1,13 @@
 "use client";
 
+import TouchButton from "@/components/ui/button-touch";
 import HeroSection from "@/components/ui/hero-section";
 import { InfiniteMovingCards } from "@/components/ui/InfiniteMovingCards";
 import { Button } from "@/components/ui/moving-border";
 import { myServices } from "@/data/myservices";
 import { techStackIcons } from "@/data/TechStack";
 import { motion } from "framer-motion";
-import { Code, Palette, Zap, Users } from "lucide-react";
+import { Code, Palette, Zap, Users, Send, SendIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -165,7 +166,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-indigo-600 to-purple-700">
+        <section className="py-20 bg-gradient-to-r from-indigo-800 to-violet-700">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <motion.h2 className="text-4xl font-bold text-white mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               Ready to Work Together?
@@ -174,8 +175,8 @@ export default function Home() {
               Let's create something amazing together. Get in touch to discuss your project.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}>
-              <Link href="/contact" className="inline-block px-8 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-lg">
-                Get In Touch
+              <Link href="/contact">
+                <TouchButton otherClasses="hover:text-pink-500 font-semibold text-lg" title="Let's get in touch" icon={<SendIcon className="w-4 h-4" />} position="right"></TouchButton>
               </Link>
             </motion.div>
           </div>
