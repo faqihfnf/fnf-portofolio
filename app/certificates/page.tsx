@@ -34,10 +34,8 @@ export default function CertificatesPage() {
               key={cert.id}
               onClick={() => handleCardClick(cert.link)}
               whileHover={{ scale: 1.01 }}
-              className="cursor-pointer rounded-xl overflow-hidden 
-                         shadow-lg shadow-indigo-500 hover:shadow-indigo-600
-                         transition-all duration-300 border border-indigo-100 dark:border-indigo-900"
               transition={{ duration: 0.02 }}
+              className="cursor-pointer rounded-xl overflow-hidden shadow-lg shadow-indigo-500 hover:shadow-indigo-600 transition-all duration-300 border border-indigo-100 dark:border-indigo-900"
             >
               <div className="h-56 overflow-hidden">
                 <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />

@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import ExperienceTimeline from "@/components/ui/experience-timeline";
-
-import { Briefcase, Code, Layers, Rocket } from "lucide-react";
 import { experiences } from "@/data/experiences";
 
 export default function ExperiencePage() {
