@@ -19,7 +19,7 @@ export default function CertificatesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <motion.h1 className="text-4xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <motion.h1 className="text-4xl font-bold mb-4" whileHover={{ scale: 1.01 }} transition={{ duration: 0.5 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             My Certificates
           </motion.h1>
           <motion.p className="text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
@@ -34,8 +34,10 @@ export default function CertificatesPage() {
               key={cert.id}
               onClick={() => handleCardClick(cert.link)}
               whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.02 }}
-              className="cursor-pointer rounded-xl overflow-hidden shadow-lg shadow-indigo-500 hover:shadow-indigo-600 transition-all duration-300 border border-indigo-100 dark:border-indigo-900"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="cursor-pointer rounded-xl overflow-hidden shadow-lg shadow-indigo-500 hover:shadow-indigo-600  border border-indigo-100 dark:border-indigo-900"
             >
               <div className="h-56 overflow-hidden">
                 <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />

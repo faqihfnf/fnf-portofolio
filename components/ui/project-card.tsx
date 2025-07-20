@@ -20,7 +20,9 @@ export default function ProjectCard({ title, description, image, technologies, s
     <motion.div
       className="bg-white dark:bg-slate-800 rounded-lg shadow-lg shadow-indigo-500 hover:shadow-indigo-600 overflow-hidden transition-shadow duration-300 flex flex-col h-full"
       whileHover={{ scale: 1.01 }}
-      transition={{ duration: 0.02 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       {/* Gambar */}
       <div className="relative h-56 overflow-hidden">
