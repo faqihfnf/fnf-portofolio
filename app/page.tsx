@@ -66,7 +66,7 @@ export default function Home() {
         <section className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <motion.h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-              About Me
+              What About Me
             </motion.h2>
             {/* Profile & Text */}
             <motion.div className="" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
@@ -75,18 +75,32 @@ export default function Home() {
                 <div className="mx-auto flex justify-end mb-4 md:mx-0 order-1 md:order-2">
                   <div className="relative group">
                     <div
-                      className="w-80 h-80 bg-gradient-to-br from-purple-600 to-teal-500 p-1 transition-transform duration-300 group-hover:scale-105  group-hover:rotate-2"
+                      className="w-[475px] h-[475px] bg-gradient-to-tl from-blue-600 via-teal-500 to-pink-500 p-0.5"
                       style={{
-                        clipPath: "polygon(8% 10%, 15% 6%, 28% 2%, 63% 5%, 85% 3%, 97% 25%, 85% 90%, 15% 98%, 12% 82%, 1% 72%, 7% 15%, 4% 10%)",
+                        WebkitMaskImage: "url('/mask-outline.svg')",
+                        WebkitMaskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center",
+                        WebkitMaskSize: "contain",
+                        maskImage: "url('/mask-outline.svg')",
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        maskSize: "cover",
                       }}
                     >
                       <div
-                        className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden"
+                        className="w-[425px] h-[385px] m-6 bg-gradient-to-br from-yellow-500 via-teal-500 to-green-600 p-4 overflow-hidden"
                         style={{
-                          clipPath: "polygon(8% 10%, 15% 6%, 28% 2%, 63% 5%, 85% 3%, 97% 25%, 85% 90%, 15% 98%, 12% 82%, 1% 72%, 7% 15%, 4% 10%)",
+                          WebkitMaskImage: "url('/mask-inline.svg')",
+                          WebkitMaskRepeat: "no-repeat",
+                          WebkitMaskPosition: "center",
+                          WebkitMaskSize: "contain",
+                          maskImage: "url('/mask-inline.svg')",
+                          maskRepeat: "no-repeat",
+                          maskPosition: "right",
+                          maskSize: "cover",
                         }}
                       >
-                        <Image src="/profil.jpg" alt="Profile" width={300} height={300} className="w-full h-full object-cover" />
+                        <Image src="/profile.jpg" alt="Profile" width={300} height={300} className="mt-14 w-full h-full object-cover" />
                       </div>
                     </div>
                   </div>
@@ -105,11 +119,11 @@ export default function Home() {
             </motion.div>
             <motion.div className=" gap-12 items-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
               {/* Motto/Tagline */}
-              <div className="mt-10 text-left order-2 md:order-1">
+              <div className="text-left order-2 md:order-1">
                 <motion.div className="space-y-6" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }}>
                   <div className="text-center md:text-left">
-                    <blockquote className="text-2xl font-medium text-gray-800 dark:text-gray-200 italic border-l-4 border-blue-500 pl-4">"Code with passion, create with purpose, innovate with impact."</blockquote>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">- Filosofi kerja saya</p>
+                    <blockquote className="text-2xl font-medium text-gray-800 dark:text-gray-200 italic border-l-4 border-indigo-600 pl-4">"Create with passion, innovate with impact and deliver excellence solutions."</blockquote>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">- My Work Philosophy</p>
                   </div>
 
                   {/* Quick Stats */}
