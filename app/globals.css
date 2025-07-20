@@ -98,6 +98,15 @@
   }
 }
 
+@keyframes shimmer-reverse {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -109,6 +118,10 @@
 
 .animate-shimmer {
   animation: shimmer 2s linear infinite;
+}
+
+.animate-shimmer-reverse {
+  animation: shimmer-reverse 2s linear infinite;
 }
 
 .bg-grid-white\/\[0\.02\] {

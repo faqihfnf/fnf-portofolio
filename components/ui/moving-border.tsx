@@ -25,7 +25,7 @@ export function Button({
 }) {
   return (
     <Component
-      className={cn(" shadow-indigo-400 hover:shadow-indigo-600 shadow-md relative text-xl p-[1px] overflow-hidden md:col-span-2", containerClassName)}
+      className={cn(" shadow-indigo-400 hover:shadow-indigo-600 shadow-sm relative text-xl p-[1px] overflow-hidden md:col-span-2", containerClassName)}
       style={{
         borderRadius: borderRadius,
       }}
