@@ -11,7 +11,10 @@ const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Faqih Nur Fahmi - Portfolio",
-  description: "Portfolio of Faqih Nur Fahmi - A passionate full-stack developer creating amazing web experiences",
+  description: "Faqih Nur Fahmi Portfolio - A passionate full-stack developer creating amazing web experiences",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

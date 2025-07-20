@@ -6,10 +6,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon } from "lucide-react";
 
-// 🔥 Redux
+// Redux
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/app/redux/store";
 import { toggleTheme } from "@/app/redux/features/themeSlice";
+import Image from "next/image";
 
 interface NavItem {
   name: string;
@@ -57,6 +58,11 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
     setIsMobileMenuOpen(false);
   };
 
+  const logoClass =
+    pathname === "/"
+      ? "invert" // selalu invert di halaman "/"
+      : "dark:invert"; // selain itu hanya invert di dark mode
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -66,13 +72,16 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
           opacity: 1,
         }}
         transition={{ duration: 0.2 }}
-        className={`fixed top-4 inset-x-0 mx-auto z-50 ${isScrolled ? "max-w-fit" : "max-w-7xl px-4 sm:px-6 lg:px-8"} ${className}`}
+        className={`fixed top-1 inset-x-0 mx-auto z-50 ${isScrolled ? "max-w-fit" : "max-w-7xl px-4 sm:px-6 lg:px-4"} ${className}`}
       >
         <div className={`relative rounded-full border border-transparent ${isScrolled ? "bg-white/60 dark:bg-slate-800/80 backdrop-blur-md shadow-lg px-8 py-2" : "bg-transparent px-0 py-0"} transition-all duration-300`}>
           <div className={`flex items-center ${isScrolled ? "justify-center space-x-6" : "justify-between"}`}>
             {!isScrolled && (
               <Link href="/" className="text-4xl font-bold text-indigo-700">
-                F n F.
+                <div className="flex items-center">
+                  <Image src="/logo.png" alt="Logo" width={50} height={50} className={logoClass} />
+                  <span className="ml-2">FnF.</span>
+                </div>
               </Link>
             )}
 
@@ -82,7 +91,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
                 <Link
                   key={`link-${idx}`}
                   href={navItem.link}
-                  className={`relative flex items-center space-x-1 transition-colors ${
+                  className={`relative font-semibold flex items-center space-x-1 transition-colors ${
                     pathname === navItem.link
                       ? isScrolled
                         ? "text-indigo-600 dark:text-indigo-400"
@@ -127,7 +136,7 @@ export const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className })
             <div className="sm:hidden">
               {isScrolled ? (
                 // When scrolled, show icons
-                <div className="flex items-center space-x-2">
+                <div className="flex font-semibold items-center space-x-2">
                   {navItems.map((navItem, idx) => (
                     <Link
                       key={`mobile-icon-${idx}`}
